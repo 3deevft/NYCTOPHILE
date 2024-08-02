@@ -1,0 +1,26 @@
+#cover{
+    width: 10%;
+    position: sticky;
+}
+#spotify{
+    width: 10%;
+    background-color: black;
+    border-radius: 20%;
+    border: 1vw black solid;
+}
+#spotify:hover{
+    cursor: pointer;
+    background-color: grey;
+    border-radius: 20%;
+    border: 1vw grey solid;
+    
+    
+}
+body{
+    background-image: url("cover.jpg");
+}
+#text{
+    color : white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px black;
+}
