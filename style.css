@@ -1,26 +1,37 @@
-#cover{
-    width: 10%;
-    position: sticky;
-}
+
 #spotify{
     width: 10%;
     background-color: black;
     border-radius: 20%;
     border: 1vw black solid;
 }
-#spotify:hover{
+#spotify :hover{
     cursor: pointer;
     background-color: grey;
     border-radius: 20%;
     border: 1vw grey solid;
-    
-    
+}
+#label{
+    line-height: 2%;
+    color: white;
+    text-shadow: 1px 1px black;
+    background-color: rgba(0,0,0,20%);
 }
 body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color :white;
     background-image: url("cover.jpg");
+    background-size:120%;
 }
 #text{
+    font-size :4pc;
+    font-weight: bolder;
     color : white;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    text-shadow: 2px black;
+    text-shadow: 4px 4px black;
+    margin: 0;
+}
+#lyrics{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: azure;
 }

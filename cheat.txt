@@ -1,0 +1,62 @@
+If you need to handle multiple timestamps and update the lyrics accordingly, you can extend the previous approach to manage multiple time checks. Here's a structured way to handle it:
+
+1. **Create a List of Timestamps and Lyrics:** Maintain an array of objects where each object contains a timestamp and the corresponding lyrics.
+
+2. **Check Timestamps Continuously:** Use the `timeupdate` event to check the current time against the list of timestamps. Update the lyrics when the audio reaches a new timestamp.
+
+Here’s how you can modify the code to handle multiple timestamps:
+
+```javascript
+document.getElementById("submitKey").onclick = function() {
+    console.log(1);
+    let x = document.getElementById('audio');
+    x.play();
+
+    // Array of timestamp and lyrics pairs
+    const lyricsAtTimes = [
+        { time: 5, text: "First line of lyrics at 5 seconds" },
+        { time: 10, text: "Second line of lyrics at 10 seconds" },
+        { time: 18, text: "Never to a change, never to a chance Never know what's coming in" }
+        // Add more timestamps and lyrics as needed
+    ];
+
+    // Variable to keep track of the index of the current timestamp
+    let currentIndex = 0;
+
+    // Function to update lyrics based on the current time
+    const updateLyrics = () => {
+        if (currentIndex < lyricsAtTimes.length && x.currentTime >= lyricsAtTimes[currentIndex].time) {
+            document.getElementById('lyrics').textContent = lyricsAtTimes[currentIndex].text;
+            currentIndex++;
+        }
+    };
+
+    // Set up an event listener to check the current time continuously
+    x.addEventListener('timeupdate', updateLyrics);
+};
+```
+
+### Explanation:
+
+1. **Array of Timestamps and Lyrics:**
+   - `lyricsAtTimes` is an array where each object has a `time` property (the timestamp in seconds) and a `text` property (the lyrics to display).
+
+2. **Tracking the Current Index:**
+   - `currentIndex` is used to keep track of which timestamp has been processed. This ensures that each set of lyrics is only displayed once.
+
+3. **Update Function:**
+   - The `updateLyrics` function checks if the current time has passed the timestamp for the current index. If so, it updates the lyrics and increments the index to move to the next timestamp.
+
+4. **Event Listener:**
+   - The `timeupdate` event listener continuously checks the `currentTime` and updates the lyrics as needed.
+
+### HTML Setup:
+Ensure you have elements with IDs `audio` and `lyrics` in your HTML for the audio and text display:
+
+```html
+<audio id="audio" src="your-audio-file.mp3"></audio>
+<div id="lyrics"></div>
+<button id="submitKey">Play Audio</button>
+```
+
+This approach allows you to manage multiple timestamps and update the lyrics dynamically as the audio plays. Adjust the `lyricsAtTimes` array as needed to fit your requirements.
